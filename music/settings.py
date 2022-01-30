@@ -25,7 +25,7 @@ SECRET_KEY = 'a)bb9kz)zj)x-)cz2fh)h0mxaukx(-+p3!xhyh=qm#$!3cqd84'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'musicbeatsx.herokuapp.com']
 
 
 # Application definition
