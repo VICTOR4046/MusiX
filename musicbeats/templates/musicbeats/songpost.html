@@ -1,0 +1,47 @@
+{%extends 'musicbeats/basic.html'%} 
+{% block title %}All Songs{% endblock %} 
+
+{% block body %}
+
+{% if message %}
+<script>
+Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+</script>
+{% endif %}
+<div class="container" style="padding-top: 4%;">
+  <div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="/media/{{song.image}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style=" padding-left: 20%;">
+        <h2 class="card-title" style="font-weight: 550; color: purple;">Title: {{song.name}}</h2>
+        <h4 class="card-text" style="padding-top: 2%; font-weight: 550;">Category: {{song.tags}}</h4>
+        <h4 class="card-text" style="padding-top: 2%; font-weight: 550;">Artist: {{song.singer}}</h4>
+        <h4 class="card-text" style="padding-top: 2%; font-weight: 550;">Album: {{song.album}}</h4>
+        <audio controls style="padding-top: 2%">
+            <source src="/media/{{song.song}}" type="audio/mp3">
+        </audio>
+        <div style="padding-top: 2%">
+        <div class="row">
+        <form action="/musicbeats/watchlater" method="POST">{% csrf_token %}
+        <input type="hidden" name="video_id" value="{{song.song_id}}">
+        <button class="btn btn-outline-danger">Add to Play Later</button>
+        
+        </form>
+        <a download href="/media/{{song.song}}" style="padding-left: 3%"><button class="btn btn-outline-danger">Download Song</button></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
