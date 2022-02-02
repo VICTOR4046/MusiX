@@ -25,7 +25,7 @@ def watchlater(request):
 
 def index(request):
     song = Song.objects.all()
-    return render(request, 'index.html', {'song': song})
+    return render(request, 'musicbeats/index.html', {'song': song})
 
 
 def songs(request):
