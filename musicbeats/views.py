@@ -18,9 +18,9 @@ def watchlater(request):
                 watchlater = Watchlater(user=user, video_id=video_id)
                 watchlater.save()
                 message = "Your Video is successfully added"
-            return redirect(f"/musicbeats/songs/{video_id}", {'message': message})
+            return redirect(f"songs/{{video_id}}", {'message': message})
 
-    return render(request, "musicbeats/watchlater.html")
+    return render(request, "watchlater.html")
 
 
 def index(request):

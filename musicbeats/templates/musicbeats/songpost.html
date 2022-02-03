@@ -31,7 +31,7 @@ Swal.fire({
         </audio>
         <div style="padding-top: 2%">
         <div class="row">
-        <form action="/musicbeats/watchlater" method="POST">{% csrf_token %}
+        <form action="musicbeats/watchlater" method="POST">{% csrf_token %}
         <input type="hidden" name="video_id" value="{{song.song_id}}">
         <button class="btn btn-outline-danger">Add to Play Later</button>
         
